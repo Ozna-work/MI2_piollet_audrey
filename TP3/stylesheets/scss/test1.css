@@ -1,0 +1,45 @@
+/* line 165, ../../sass/scss/test1.scss */
+.fa-facebook {
+  background: #3c69ff;
+  color: grey;
+}
+
+/* line 165, ../../sass/scss/test1.scss */
+.fa-twitter {
+  background: #1681b4;
+  color: grey;
+}
+
+/* line 165, ../../sass/scss/test1.scss */
+.fa-linkedin {
+  background: #2cd0dd;
+  color: grey;
+}
+
+/* line 165, ../../sass/scss/test1.scss */
+.fa-instagram {
+  background: #8c6fb3;
+  color: grey;
+}
+
+/* line 165, ../../sass/scss/test1.scss */
+.fa-pinterest {
+  background: #5eea6f;
+  color: grey;
+}
+
+/* line 165, ../../sass/scss/test1.scss */
+.fa-youtube {
+  background: #dc2e37;
+  color: grey;
+}
+
+/* line 172, ../../sass/scss/test1.scss */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}

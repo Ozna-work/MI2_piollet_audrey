@@ -1,0 +1,33 @@
+.fa-facebook {
+  background: #3c69ff;
+  color: grey; }
+
+.fa-twitter {
+  background: #1681b4;
+  color: grey; }
+
+.fa-linkedin {
+  background: #2cd0dd;
+  color: grey; }
+
+.fa-instagram {
+  background: #8c6fb3;
+  color: grey; }
+
+.fa-pinterest {
+  background: #5eea6f;
+  color: grey; }
+
+.fa-youtube {
+  background: #dc2e37;
+  color: grey; }
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px; }
+
+/*# sourceMappingURL=test1.css.map */

@@ -1,0 +1,182 @@
+//1. Créer une boucle pour obtenir la série de quatre classes ci-dessous. Le code doit permettre de changer le nombre de classes en modifiant un seul paramètre.
+
+// $elements : 4;
+//
+// @for $i from 1 through $elements {
+//   .taille-#{$i} {
+//     width: (100% / $elements) * $i;
+//   }
+// }
+
+
+//2. Créer un mixin correspondant au code de la question précédente
+
+// @mixin generer_classes_taille{
+//   $elements : 4;
+//
+//   @for $i from 1 through $elements {
+//     .taille-#{$i} {
+//       width: (100% / $elements) * $i;
+//     }
+//   }
+//
+// }
+//
+// @include generer_classes_taille
+
+
+//3. Maintenant, utiliser la même boucle de la question 1 pour obtenir le code suivant.(Astuce : pensez à utiliser les tableaux).
+// $i:0;
+// $tableau_tailles : petit,standard,moyen,grand;
+//
+// @each $element in $tableau_tailles {
+//   .taille-#{$element} {
+//     $i:$i+1;
+//     width: (100% / length($tableau_tailles)) * $i;
+//   }
+// }
+
+
+//4. Créez un mixin correspondant au code de la question précédente.
+// @mixin tableau_tailles($liste) {
+//   $i:0;
+//
+//   @each $element in $liste {
+//     .taille-#{$element} {
+//       $i:$i+1;
+//       width: (100% / length($liste)) * $i;
+//     }
+//   }
+// }
+//
+// $tableau_tailles : petit,standard,moyen,grand;
+// @include tableau_tailles($tableau_tailles)
+
+
+//5. Rendre votre mixin générique à toutes les classes.
+// @mixin tableau_tailles_classes($classe,$liste) {
+//   $i:0;
+//
+//   @each $element in $liste {
+//     .#{$classe}-#{$element} {
+//       $i:$i+1;
+//       width: (100% / length($liste)) * $i;
+//     }
+//   }
+// }
+//
+// $tableau_tailles : "petit","standard","moyen","grand";
+// $classe : "button";
+// @include tableau_tailles_classes($classe,$tableau_tailles)
+
+
+
+//6. Créez une fonction sass permettant de renvoyer la valeur de la première entrée d’un tableau et testez-la sur votre tableau
+// @function premiere_valeur_tableau($liste) {
+//   @return nth($liste,1);
+// }
+//
+// $tableau : "petit","standard","moyen","grand";
+// premiere_valeur_tableau($tableau)
+
+// @function returnFirstInArray($array) {
+//   @return nth($array,1);
+// }
+//
+// $tableau_tailles : "petit","standard","moyen","grand";
+// p {
+//   content : returnFirstInArray($tableau_tailles)
+// }
+
+
+//7. Créez une fonction sass permettant de renvoyer la valeur de la dernière entrée d’un tableau.
+
+// @function returnLastInArray($array) {
+//   @return nth($array,length($array)); //On peut mettre -1 aussi à la place de length($array)
+// }
+//
+// $tableau_tailles : "petit","standard","moyen","grand";
+// p {
+//   content : returnLastInArray($tableau_tailles)
+// }
+
+
+//8. Créez un tableau associatif (map) intitulée $destinations contenant plusieurs valeurs.
+//$destinations : ("Europe" : France, "Amerique" : Canada, "Asie" : Japon);
+
+
+//9. Utilisez une boucle permettant de créer une série de classes css pour chacune des destinations sous la forme suivante
+// $destinations : ("espagne" : "Espagne", "maroc" : "Maroc", "bresil" : "Brésil", "caraibes" : "Les îles caraibes");
+//
+// @each $id,$name in $destinations {
+//   .ville-#{$id}::before {
+//     display : block;
+//     content: $name;
+//   }
+// }
+
+
+
+
+//10.Créez un mixin permettant de reproduire le code précédent de manière générique avec une option permettant d’insérer le texte avant ou après.
+
+// @mixin ville($liste,$endroit) {
+//   @each $id,$name in $liste {
+//     .ville-#{$id}::#{$endroit} {
+//       display : block;
+//       content: $name;
+//     }
+//   }
+// }
+//
+// $destinations : ("espagne" : "Espagne", "maroc" : "Maroc", "bresil" : "Brésil", "caraibes" : "Les îles caraibes");
+// @include ville($destinations,after);
+
+
+//11.Créez un tableau associatif (map) intitulé $social et contenant :
+
+// $social : ("facebook" : #6f90ff, "twitter" : #1ba1e2, "linkedin" : #58dae4, "instagram" : #a790c5, "pinterest" : #8bf097, "youtube" : #e35a61);
+
+//12.Utilisez la map créée à la question 9 pour générer une série de classes sous la forme suivante
+
+// @each $id,$name in $social {
+//   .fa-#{$id}{
+//     background: $name;
+//     color: grey;
+//   }
+//
+// }
+//
+// .fa {
+//   padding: 20px;
+//   font-size: 30px;
+//   width: 50px;
+//   text-align: center;
+//   text-decoration: none;
+//   margin: 5px 2px;
+// }
+
+//14.Créez un mixin permettant de reproduire le code précédent de manière générique avec une option permettant de choisir le pourcentage d’éclaircissement de la couleur d’arrière plan.
+
+@mixin displaySocialMedia($clarete) {
+  $social : ("facebook" : #6f90ff, "twitter" : #1ba1e2, "linkedin" : #58dae4, "instagram" : #a790c5, "pinterest" : #8bf097, "youtube" : #e35a61);
+
+  @each $id,$name in $social {
+    .fa-#{$id}{
+      background: darken($name,$clarete);
+      color: grey;
+    }
+
+  }
+
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+}
+
+@include displaySocialMedia(10%);
